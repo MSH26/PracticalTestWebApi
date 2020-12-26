@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PracticalTestDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PracticalTestDb.dbo.Comments' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Comments">
+          <Property Name="commentId" Type="bigint" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="postId" Type="bigint" />
+          <Property Name="userId" Type="bigint" />
+          <Property Name="creationDtTm" Type="datetime" />
+          <Property Name="lastUpdateDtTm" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PracticalTestDb.dbo.Likes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Likes">
+          <Property Name="likeId" Type="bigint" />
+          <Property Name="commentId" Type="bigint" />
+          <Property Name="userId" Type="bigint" />
+          <Property Name="creationDtTm" Type="datetime" />
+          <Property Name="lastUpdateDtTm" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PracticalTestDb.dbo.Posts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Posts">
+          <Property Name="postId" Type="bigint" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="userId" Type="bigint" />
+          <Property Name="creationDtTm" Type="datetime" />
+          <Property Name="lastUpdateDtTm" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PracticalTestDb.dbo.RelationShipBetweenComments' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RelationShipBetweenComments">
+          <Property Name="relationShipBetweenComments" Type="bigint" />
+          <Property Name="commentId" Type="bigint" />
+          <Property Name="repliedCommentId" Type="bigint" />
+          <Property Name="mainCommentId" Type="bigint" />
+          <Property Name="creationDtTm" Type="datetime" />
+          <Property Name="lastUpdateDtTm" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PracticalTestDb.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userId" Type="bigint" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="15" />
+    <Property Name="firstName" Type="varchar" MaxLength="15" />
+    <Property Name="middleName" Type="varchar" MaxLength="15" />
+    <Property Name="lastName" Type="varchar" MaxLength="15" />
+    <Property Name="dateOfBirth" Type="date" />
+    <Property Name="gender" Type="int" />
+    <Property Name="role" Type="int" />
+    <Property Name="isActive" Type="int" />
+    <Property Name="creationDtTm" Type="datetime" />
+    <Property Name="lastUpdateDtTm" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="PracticalTestDbModelStoreContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[userId] AS [userId], 
+    [Users].[userName] AS [userName], 
+    [Users].[password] AS [password], 
+    [Users].[firstName] AS [firstName], 
+    [Users].[middleName] AS [middleName], 
+    [Users].[lastName] AS [lastName], 
+    [Users].[dateOfBirth] AS [dateOfBirth], 
+    [Users].[gender] AS [gender], 
+    [Users].[role] AS [role], 
+    [Users].[isActive] AS [isActive], 
+    [Users].[creationDtTm] AS [creationDtTm], 
+    [Users].[lastUpdateDtTm] AS [lastUpdateDtTm]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
